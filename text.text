@@ -1,0 +1,24 @@
+<HomeCard
+    img="/icons/add-meeting.svg"
+    title="New Meeting"
+    description="Start an Instant meeting"
+    handleClick={() => {
+        console.log("Clicked Instant Meeting");
+        setMeetingState('isInstantMeeting');
+    }}
+    className="bg-orange-1"
+/>
+
+<HomeCard
+                img="/icons/add-meeting.svg"
+                title="New Meeting"
+                description="Start an Instant meeting"
+                handleClick={() => setMeetingState('isInstantMeeting')}
+                className="bg-orange-1"
+            />
+
+import { useEffect } from "react";
+
+useEffect(() => {
+    console.log("Meeting state changed to:", meetingState);
+}, [meetingState]);
