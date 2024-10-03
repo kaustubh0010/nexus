@@ -26,14 +26,12 @@ const MobileNav = () => {
             bg-dark-1">
                 <Link href="/" className="flex items-center gap-1">
                     <Image 
-                    src="/icons/logo.svg"
+                    src="/icons/NEXUS_logo-removebg-preview (1).png"
                     width={32}
                     height={32}
-                    alt="Boom logo"
+                    alt="Nexus logo"
                     className='max-sm:size-10'
                     />
-                    <p className="text-[26px] font-extrabold text-white 
-                    ">Boom</p>
                 </Link>
 
                 <div className="flex h-[calc(100vh-72px)]
