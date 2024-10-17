@@ -10,10 +10,13 @@ const Home = () => {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      // Convert to IST
-      const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-      const currentTime = now.toLocaleTimeString('en-US', options);
-      const currentDate = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Kolkata', dateStyle: 'full' }).format(now);
+      
+      // Convert to IST manually
+      const utcOffset = 5.5 * 60 * 60 * 1000; // UTC +5:30 in milliseconds
+      const istTime = new Date(now.getTime() + utcOffset);
+      
+      const currentTime = istTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      const currentDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(istTime);
 
       setTime(currentTime);
       setDate(currentDate);
