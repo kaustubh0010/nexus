@@ -10,9 +10,9 @@ const Home = () => {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      // Convert to IST (UTC+5:30)
-      const istOffset = 5.5 * 60 * 60 * 1000; // 5 hours and 30 minutes in milliseconds
-      const istTime = new Date(now.getTime() + istOffset);
+      // Convert to UTC time and then to IST (UTC+5:30)
+      const utcTime = now.getTime() + (now.getTimezoneOffset() * 60 * 1000); // Adjust for local time zone
+      const istTime = new Date(utcTime + (5.5 * 60 * 60 * 1000)); // Add IST offset
 
       const currentTime = istTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
       const currentDate = istTime.toLocaleDateString('en-US', { dateStyle: 'full' });
